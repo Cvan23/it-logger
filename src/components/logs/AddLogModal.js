@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TechSelectOptions from '../techs/TechSelectOptions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addLog } from '../../actions/logActions';
@@ -10,7 +11,7 @@ const AddLogModal = ({ addLog }) => {
   const [tech, setTech] = useState('');
 
   const onSubmit = () => {
-    if(message === '' || tech === '') {
+    if (message === '' || tech === '') {
       M.toast({ html: 'Please enter a message and tech' });
     } else {
       const newLog = {
@@ -18,7 +19,7 @@ const AddLogModal = ({ addLog }) => {
         attention,
         tech,
         date: new Date()
-      }
+      };
 
       addLog(newLog);
 
@@ -32,46 +33,46 @@ const AddLogModal = ({ addLog }) => {
   };
 
   return (
-    <div id='add-log-modal' className="modal" style={modalStyle}>
-      <div className="modal-content">
-        <h4>Enter Sytem Log</h4>
-        <div className="row">
-          <div className="input-field">
+    <div id='add-log-modal' className='modal' style={modalStyle}>
+      <div className='modal-content'>
+        <h4>Enter System Log</h4>
+        <div className='row'>
+          <div className='input-field'>
             <input
-              type="text"
+              type='text'
               name='message'
               value={message}
               onChange={e => setMessage(e.target.value)}
             />
-            <label htmlFor="message" className="active">
+            <label htmlFor='message' className='active'>
               Log Message
             </label>
           </div>
         </div>
 
-        <div className="row">
-          <div className="input-field">
+        <div className='row'>
+          <div className='input-field'>
             <select
               name='tech'
               value={tech}
               className='browser-default'
               onChange={e => setTech(e.target.value)}
             >
-              <option value="" disabled>Select Technician</option>
-              <option value="Koa Bear">Koa Bear</option>
-              <option value="Koa Bear">Winston Cat</option>
-              <option value="Koa Bear">Loki Jerk</option>
+              <option value='' disabled>
+                Select Technician
+              </option>
+              <TechSelectOptions />
             </select>
           </div>
         </div>
 
-        <div className="row">
-          <div className="input-field">
+        <div className='row'>
+          <div className='input-field'>
             <p>
               <label>
-                <input 
-                  type="checkbox"
-                  className="filled-in"
+                <input
+                  type='checkbox'
+                  className='filled-in'
                   checked={attention}
                   value={attention}
                   onChange={e => setAttention(!attention)}
@@ -82,9 +83,9 @@ const AddLogModal = ({ addLog }) => {
           </div>
         </div>
       </div>
-      <div className="modal-footer">
-        <a 
-          href="#!"
+      <div className='modal-footer'>
+        <a
+          href='#!'
           onClick={onSubmit}
           className='modal-close waves-effect indigo accent-1 btn'
         >
@@ -92,16 +93,19 @@ const AddLogModal = ({ addLog }) => {
         </a>
       </div>
     </div>
-  )
+  );
 };
 
 AddLogModal.propTypes = {
   addLog: PropTypes.func.isRequired
-}
+};
 
 const modalStyle = {
   width: '75%',
   height: '75%'
-}
+};
 
-export default connect(null, { addLog })(AddLogModal);
+export default connect(
+  null,
+  { addLog }
+)(AddLogModal);
