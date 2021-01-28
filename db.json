@@ -1,11 +1,11 @@
 {
   "logs": [
     {
-      "message": "computer blow up",
-      "attention": true,
+      "id": 1,
+      "message": "computer blow up (Fixed)",
+      "attention": false,
       "tech": "Koa Bear",
-      "date": "2021-01-28T00:11:20.815Z",
-      "id": 1
+      "date": "2021-01-28T15:07:32.008Z"
     },
     {
       "message": "fixed 908 butt-drive",
@@ -13,6 +13,13 @@
       "tech": "Koa Bear",
       "date": "2021-01-28T00:11:50.529Z",
       "id": 2
+    },
+    {
+      "id": 3,
+      "message": "ass component needs fixed",
+      "attention": false,
+      "tech": "Koa Bear",
+      "date": "2021-01-28T15:13:15.585Z"
     }
   ],
   "techs": [
